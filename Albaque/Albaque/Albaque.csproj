@@ -126,6 +126,10 @@
     <Compile Include="Migrations\201704201026119_AddModelsToDB.Designer.cs">
       <DependentUpon>201704201026119_AddModelsToDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704211222452_ChangeModelIds.cs" />
+    <Compile Include="Migrations\201704211222452_ChangeModelIds.Designer.cs">
+      <DependentUpon>201704211222452_ChangeModelIds.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categorie.cs" />
     <Compile Include="Models\Chiffrage.cs" />
@@ -157,6 +161,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704201026119_AddModelsToDB.resx">
       <DependentUpon>201704201026119_AddModelsToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704211222452_ChangeModelIds.resx">
+      <DependentUpon>201704211222452_ChangeModelIds.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
