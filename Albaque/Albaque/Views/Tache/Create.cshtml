@@ -40,24 +40,24 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.tache.categorie, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.tache.CategorieId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.tache.categorie, new SelectList(Model.categories, "Id", "nom"), "Choix du categorie", new { @class = "control-label col-md-2" })
-                @*@Html.ValidationMessageFor(model => model.projet.client)*@
+                @Html.DropDownListFor(model => model.tache.CategorieId, new SelectList(Model.categories, "Id", "nom"), "Choix du categorie", new { @class = "control-label col-md-2" })
+                @Html.ValidationMessageFor(model => model.tache.CategorieId)
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.tache.technologie, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.tache.TechnologieId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.tache.technologie, new SelectList(Model.technologies, "Id", "nom"), "Choix du techno", new { @class = "control-label col-md-2" })
-                @*@Html.ValidationMessageFor(model => model.projet.client)*@
+                @Html.DropDownListFor(model => model.tache.TechnologieId, new SelectList(Model.technologies, "Id", "nom"), "Choix du techno", new { @class = "control-label col-md-2" })
+                @Html.ValidationMessageFor(model => model.tache.TechnologieId)
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.tache.complexite, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.tache.ComplexiteId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.tache.complexite, new SelectList(Model.complexites, "Id", "nom"), "Choix du complexite", new { @class = "control-label col-md-2" })
-                @*@Html.ValidationMessageFor(model => model.projet.client)*@
+                @Html.DropDownListFor(model => model.tache.ComplexiteId, new SelectList(Model.complexites, "Id", "nom"), "Choix du complexite", new { @class = "control-label col-md-2" })
+                @Html.ValidationMessageFor(model => model.tache.ComplexiteId)
             </div>
         </div>
         <div class="form-group">

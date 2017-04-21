@@ -87,7 +87,18 @@ namespace Albaque.Controllers
             {
                 return HttpNotFound();
             }
-            return View(projet);
+            else
+            {
+                var clients = db.Clients.ToList();
+
+                var viewModel = new ProjetClientViewModel
+                {
+                    projet = projet,
+                    clients = clients
+                };
+                return View(viewModel);
+            }
+
         }
 
         // POST: /Projet/Edit/5
@@ -95,15 +106,16 @@ namespace Albaque.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Nom,Duree,Delai,Date_Debut,Date_Fin")] Projet projet)
+        //public ActionResult Edit([Bind(Include="Id,Nom,Duree,Delai,Date_Debut,Date_Fin")] Projet projet)
+        public ActionResult Edit(ProjetClientViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(projet).State = EntityState.Modified;
+                db.Entry(viewModel.projet).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(projet);
+            return View(viewModel.projet);
         }
 
         // GET: /Projet/Delete/5

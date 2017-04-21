@@ -82,12 +82,28 @@ namespace Albaque.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tache tache = db.Taches.Find(id);
+            Tache tache = db.Taches.Find(id);           
+
             if (tache == null)
             {
                 return HttpNotFound();
             }
-            return View(tache);
+            else
+            {
+
+                var categories = db.Categories.ToList();
+                var complexites = db.Complexites.ToList();
+                var technologies = db.Technologies.ToList();
+                var viewModel = new TacheInformationViewModel
+                {
+                    tache = tache,
+                    categories = categories,
+                    complexites = complexites,
+                    technologies = technologies
+                };
+                return View(viewModel);
+            }
+           // return View("Index");
         }
 
         // POST: /Tache/Edit/5
@@ -95,15 +111,16 @@ namespace Albaque.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,nom,description,charge")] Tache tache)
+        //public ActionResult Edit([Bind(Include="Id,nom,description,charge")] Tache tache)
+        public ActionResult Edit(TacheInformationViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tache).State = EntityState.Modified;
+                db.Entry(viewModel.tache).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tache);
+            return View(viewModel.tache);
         }
 
         // GET: /Tache/Delete/5
