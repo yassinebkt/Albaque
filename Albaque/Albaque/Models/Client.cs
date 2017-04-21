@@ -10,12 +10,16 @@ namespace Albaque.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Nom du Client")]
         [Required]
         public string nom { get; set; }
 
+        [Display(Name = "Addresse mail")]
         public string adresse_Mail { get; set; }
 
+        [Display(Name = "Numero de Telephone")]
         public string numero_Tel { get; set; }
+
 
         public virtual ICollection<Projet> projets { get; set; }
     }

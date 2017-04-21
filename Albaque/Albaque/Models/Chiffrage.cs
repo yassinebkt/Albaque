@@ -10,16 +10,25 @@ namespace Albaque.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Nom du Projet")]
         [Required]
-        public Utilisateur utilisateur { get; set; }
+        public int ProjetId { get; set; }
 
+        [Display(Name = "Nom d'utilisateur")]
         [Required]
-        public Projet projet { get; set; }
+        public int UtilisateurId { get; set; }
 
+        [Display(Name = "Nom du chiffrage")]
         [Required]
         public string nom { get; set; }
 
+        [Display(Name = "Version")]
         public string version { get; set; }
+
+
+        public Utilisateur utilisateur { get; set; }
+
+        public Projet projet { get; set; }
 
         public virtual ICollection<Chiffrage_Tache> chiffrageTache { get; set; }
 

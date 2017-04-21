@@ -10,7 +10,8 @@ namespace Albaque.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Nom")]
         [Required]
-        public string Nom { get; set; }
+        public string nom { get; set; }
     }
 }

@@ -12,22 +12,24 @@ namespace Albaque.Models
         [Column(Order = 0)]
         public int Id { get; set; }
 
-        /*[Column(Order = 1)]
+        [Required]
+        [Column(Order = 1)]
         public int ChiffrageId { get; set; }
 
+        [Required]
         [Column(Order = 2)]
-        public int TacheId { get; set; }*/
-
-        [Required]
-        public virtual Tache tache { get; set; }
-        [Required]
-        public virtual Chiffrage chiffrage { get; set; }
-        
+        public int TacheId { get; set; }
+                
         [Required]
         public string nom { get; set; }
 
         [Required]
         public int ordre { get; set; }
+
+        public virtual Tache tache { get; set; }
+
+        public virtual Chiffrage chiffrage { get; set; }
+        
 
     }
 }

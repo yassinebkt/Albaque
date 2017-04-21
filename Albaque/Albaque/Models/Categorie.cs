@@ -10,6 +10,7 @@ namespace Albaque.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Nom")]
         [Required]
         public string nom { get; set; }
     }

@@ -10,13 +10,16 @@ namespace Albaque.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Nom d'utilisateur")]
         [Required]
-        public string Nom { get; set; }
+        public string nom { get; set; }
 
-        public string Poste { get; set; }
+        [Display(Name = "Poste d'utilisateur")]
+        public string poste { get; set; }
 
+        [Display(Name = "Addresse mail ")]
         [Required]
-        public string Adresse_Mail { get; set; }
+        public string adresse_Mail { get; set; }
 
         
         public virtual ICollection<Chiffrage> chiffrage { get; set; }
