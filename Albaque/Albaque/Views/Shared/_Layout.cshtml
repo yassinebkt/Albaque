@@ -6,7 +6,26 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/toastr.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/datatables/css/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script src="~/scripts/modernizr-2.6.2.js"></script>
+    <script src="~/scripts/bootbox.js"></script>
+    <script src="~/scripts/toastr.js"></script>
+    @*<script src="~/scripts/datatables/jquery.datatables.js"></script>
+    <script src="~/scripts/datatables/datatables.bootstrap.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"></script>*@
+    <style>
+        .container {
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+    </style>
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -20,8 +39,41 @@
                 @Html.ActionLink("Albaque", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Chiffrage</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Création", "Create", "Chiffrage")</li>
+                            <li>@Html.ActionLink("Visualisation", "Index", "Client")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projet</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Création", "Create", "Projet")</li>
+                            <li>@Html.ActionLink("Visualisation", "Index", "Projet")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Client</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Création", "Create", "Client")</li>
+                            <li>@Html.ActionLink("Visualisation", "Index", "Client")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tache</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Création", "Create", "Tache")</li>
+                            <li>@Html.ActionLink("Visualisation", "Index", "Tache")</li>
+                        </ul>
+                    </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Se déconnecter", "LogOff", "Login", null, new { @class = "navbar-brand" })</li>
+                </ul>
+                @*<ul class="nav navbar-nav">
+                </ul>*@
             </div>
         </div>
     </div>
@@ -30,11 +82,12 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Albaque</p>
         </footer>
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+
 </body>
 </html>

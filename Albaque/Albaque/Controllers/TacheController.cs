@@ -135,11 +135,13 @@ namespace Albaque.Controllers
             {
                 return HttpNotFound();
             }
+            db.Taches.Remove(tache);
+            db.SaveChanges();
             return View(tache);
         }
 
         // POST: /Tache/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpDelete, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

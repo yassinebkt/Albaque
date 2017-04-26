@@ -8,8 +8,11 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+    <a href='@Url.Action("Create", "Tache")' style="text-decoration: none;">
+        <span class="glyphicon glyphicon-plus" title="Crée"></span>
+    </a>
 </p>
-<table class="table">
+<table class="table" id="taches">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.nom)
@@ -21,13 +24,13 @@
             @Html.DisplayNameFor(model => model.charge)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.categorie)
+            @Html.DisplayNameFor(model => model.CategorieId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.complexite)
+            @Html.DisplayNameFor(model => model.ComplexiteId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.technologie)
+            @Html.DisplayNameFor(model => model.TechnologieId)
         </th>
         <th></th>
     </tr>
@@ -53,11 +56,65 @@
             @Html.DisplayFor(modelItem => item.technologie.nom)
         </td>
         <td>
+            @* on va mettre le boutons *@
+            <a href='@Url.Action("Details", "Tache", new { id = item.Id })' style="text-decoration: none;">
+                <span class="glyphicon glyphicon-search" title="Détail"></span>
+            </a>
+
+        </td>
+        <td>
+            <a href='@Url.Action("Edit", "Tache", new { id = item.Id })' style="text-decoration: none;">
+                <span class="glyphicon glyphicon-pencil" title="Editer"></span>
+            </a>
+
+        </td>
+        @*<td>
+            <a href='@Url.Action("Delete", "Tache", new { id = item.Id })' style="text-decoration: none;">
+                <span class="glyphicon glyphicon-remove" title="Supprimer"></span>
+            </a>
+
+        </td>*@
+        <td>
+            <button data-client-id="@item.Id" class="btn-link js-delete">
+                <span class="glyphicon glyphicon-remove" title="Supprimer"></span>
+            </button>
+
+               @* <a href='@Url.Action("Delete", "Tache", new { id = item.Id })' style="text-decoration: none;">
+        <span class="glyphicon glyphicon-remove" title="Supprimer"></span>
+             </a>*@
+                
+        </td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
+        </td>*@
     </tr>
 }
 
 </table>
+
+
+    <script>
+        $(document).ready(function () {
+            @*$('#taches').dataTable();*@
+
+
+            $("#taches").on("click", ".js-delete", function () {
+                var button = $(this);
+                if (confirm("Are you sure Mf")) {
+                    $.ajax({
+                        type: "post",
+                        url: "/Tache/Delete/" + button.attr("data-client-id"),
+                        //data: {id : button.attr("data-client-id") },
+                        ajaxasync: true,
+                        success: function () {
+                            button.parents("tr").remove();
+                            toastr.success("La tache à était ajouté");
+                        
+                    }
+                });
+            }
+        });
+    });
+</script>  

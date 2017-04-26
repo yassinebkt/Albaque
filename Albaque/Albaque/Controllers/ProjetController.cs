@@ -44,7 +44,8 @@ namespace Albaque.Controllers
             var viewModel = new ProjetClientViewModel
             {
                 projet = new Projet(),
-                clients = clients
+                clients = clients,
+                newClient = new Client()
             };
            
             return View(viewModel);
@@ -74,6 +75,9 @@ namespace Albaque.Controllers
                 .ToArray();
             return View(projet);
         }
+
+
+
 
         // GET: /Projet/Edit/5
         public ActionResult Edit(int? id)

@@ -9,6 +9,7 @@ namespace Albaque.ViewModels
     public class ProjetClientViewModel
     {
         public IEnumerable<Client> clients { get; set; }
-        public Projet projet { get; set; }       
+        public Projet projet { get; set; }
+        public Client newClient { get; set; }
     }
 }
